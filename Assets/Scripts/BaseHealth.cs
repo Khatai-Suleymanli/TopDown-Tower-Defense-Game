@@ -18,5 +18,6 @@ public class BaseHealth : MonoBehaviour
     void Die()
     {
         Destroy(gameObject);
+        Debug.Log(Health);
     }
 }

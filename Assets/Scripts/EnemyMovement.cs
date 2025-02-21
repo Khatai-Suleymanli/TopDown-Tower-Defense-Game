@@ -13,6 +13,7 @@ public class EnemyMovement : MonoBehaviour
 
     void Start()
     {
+        // fill the waypaoints array. add waypoints
         
     }
 
