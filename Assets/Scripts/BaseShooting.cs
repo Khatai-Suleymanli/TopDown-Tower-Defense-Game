@@ -25,12 +25,17 @@ public class BaseShooting : MonoBehaviour
     public float thickness = 0.05f;
 
 
+
+
     private void OnDrawGizmos()
     {
         Gizmos.color = color;
         
         Gizmos.DrawWireSphere( transform.position, AttackRange );
 
+
+
+        ///////
         Gizmos.color = lineColor;
 
         Vector3 start =  shootPoint.transform.position;

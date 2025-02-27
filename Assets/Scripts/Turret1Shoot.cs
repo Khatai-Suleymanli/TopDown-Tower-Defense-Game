@@ -16,7 +16,7 @@ public class Turret1Shoot : MonoBehaviour
 
     //for ilustrating range
     public float radious = 5f;
-    public Color color = Color.green; // color of the range circle of the tower cannons
+    public Color color = Color.blue; // color of the range circle of the tower cannons
 
     [Header("------Animation-------")]
     public Animator animator;
@@ -95,7 +95,7 @@ public class Turret1Shoot : MonoBehaviour
 
         // error handling
         enemy.GetComponent<BaseHealth>().TakeDamage(damage); // replace with enemyHealth script.
-        Debug.Log("Base shot the enmy");
+        Debug.Log("Turret shot the enemy");
 
     }
 }

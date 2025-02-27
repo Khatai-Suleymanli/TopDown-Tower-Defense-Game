@@ -13,7 +13,7 @@ public class EnemySpawner : MonoBehaviour
 
     private float timer;
 
-    public Transform[] waypoints;
+    public Transform[] waypoints; //array of waypoints(enemies' path) the same as the one in enemy movement
 
     // Start is called before the first frame update
     void Start()
@@ -43,7 +43,7 @@ public class EnemySpawner : MonoBehaviour
         }
         else
         {
-            Debug.Log("EnemyMivemtn prob;ematic");
+            Debug.Log("EnemyMovement problematic");
         }
     }
 }
