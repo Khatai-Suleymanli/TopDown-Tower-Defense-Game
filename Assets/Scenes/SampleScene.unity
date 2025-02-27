@@ -142339,8 +142339,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4409157742377566869}
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -1.08, y: -6.71, z: -8.19}
+  m_LocalRotation: {x: -0, y: -0.5339791, z: -0, w: 0.8454977}
+  m_LocalPosition: {x: -1.1026928, y: -6.71, z: -8.29049}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -142348,7 +142348,7 @@ Transform:
   - {fileID: 4409157742377541295}
   m_Father: {fileID: 0}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -64.549, z: 0}
 --- !u!4 &4409157742377541283
 Transform:
   m_ObjectHideFlags: 0
@@ -142642,8 +142642,9 @@ GameObject:
   - component: {fileID: 4409157742377541281}
   - component: {fileID: 4409157742388344679}
   - component: {fileID: 4409157742384032391}
+  - component: {fileID: 4409157742388344680}
   m_Layer: 29
-  m_Name: Tower1
+  m_Name: Tower2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -143119,6 +143120,27 @@ MonoBehaviour:
   prevLevelTower: {fileID: 11400000, guid: cd298b39267979d4085d4f6441f0facb, type: 3}
   nextLevelTower: {fileID: 0}
   value: 
+--- !u!95 &4409157742388344680
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4409157742377566869}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d64c7c5ed0eacad459f951d734e712a2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &6097924854855335329
 Transform:
   m_ObjectHideFlags: 0
