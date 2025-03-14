@@ -6,21 +6,15 @@ using static UnityEngine.GraphicsBuffer;
 public class EnemyMovement : MonoBehaviour
 {
     public Transform[] waypoints; //array of waypoints(enemies' path)
-    public int waypointIndex = 0; //this the current waypoiny enemy is moving to
+    private int waypointIndex = 0; //this the current waypoiny enemy is moving to
     public float speed = 3.0f;  //enemy movement speed
 
     public float rotationSpeed = 20.0f; //rotation speed of the enemy robot
 
-    [Header("Animations")]
-    public Animator animator;
     void Start()
     {
         // fill the waypaoints array. add waypoints
-        if (animator == null)
-        {
-            animator = GetComponent<Animator>();
-        }
-
+        
     }
 
     // Update is called once per frame
@@ -57,10 +51,6 @@ public class EnemyMovement : MonoBehaviour
                 //enemy will shoot tower
             }
 
-        }
-        else
-        {
-            animator.SetBool("Shooting", true);
         }
     }
 }
