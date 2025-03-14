@@ -51731,8 +51731,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.37929708, y: -0.59518474, z: 0.37597394, w: 0.60044366}
-  m_LocalPosition: {x: 26.582478, y: 36.132095, z: 20.603043}
+  m_LocalRotation: {x: -0.35527572, y: 0.61159855, z: -0.35525206, w: -0.6111648}
+  m_LocalPosition: {x: 31.015652, y: 31.760921, z: 16.57485}
   m_LocalScale: {x: -2654.3, y: -2654.3, z: -2654.3}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -143262,7 +143262,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4409157742377541281}
-  - component: {fileID: 4409157742388344679}
   - component: {fileID: 4409157742384032391}
   - component: {fileID: 4409157742388344680}
   m_Layer: 29
@@ -143601,147 +143600,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.1, z: 1}
   m_Center: {x: 0, y: 0.55, z: 0}
---- !u!114 &4409157742388344679
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4409157742377566869}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 133e386909aab3849b1c0551e32ca96f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefabID: 8
-  instanceID: -1
-  unitName: BeamLaserTower2
-  iconSprite: {fileID: 21300000, guid: 2a5bc553995476945a99c948644eb75f, type: 3}
-  desp: Very high damage capacity and cause damage over time
-  defaultHP: 30
-  fullHP: 20
-  HP: 20
-  HPRegenRate: 0.5
-  HPStaggerDuration: 10
-  defaultShield: 0
-  fullShield: 0
-  shield: 0
-  shieldRegenRate: 1
-  shieldStaggerDuration: 1
-  immuneToCrit: 0
-  immuneToSlow: 0
-  immuneToStun: 0
-  currentActiveStat: 0
-  stats:
-  - damageMin: 4
-    damageMax: 5
-    cooldown: 1
-    clipSize: 0
-    reloadDuration: 0
-    range: 7
-    aoeRadius: 0
-    crit:
-      chance: 0.5
-      dmgMultiplier: 1
-    stun:
-      chance: 0
-      duration: 0
-    slow:
-      effectID: 0
-      duration: 0
-      slowMultiplier: 0
-    dot:
-      effectID: 0
-      duration: 0.8
-      interval: 0.2
-      value: 0.5
-    buff:
-      effectID: 0
-      damageBuff: 0
-      cooldownBuff: 0
-      rangeBuff: 0
-      criticalBuff: 0
-      regenHP: 0
-    rscGain: 
-    cost: 1400000000000000
-    buildDuration: 1
-    unBuildDuration: 1
-    shootObjectT: {fileID: 0}
-    shootObject: {fileID: 11400000, guid: 17333c2390d537144a205871c393bcc5, type: 3}
-    useCustomDesp: 0
-    desp: 
-  - damageMin: 5
-    damageMax: 6
-    cooldown: 1
-    clipSize: 0
-    reloadDuration: 0
-    range: 7
-    aoeRadius: 0
-    crit:
-      chance: 0.5
-      dmgMultiplier: 1
-    stun:
-      chance: 0
-      duration: 0
-    slow:
-      effectID: 0
-      duration: 0
-      slowMultiplier: 0
-    dot:
-      effectID: 0
-      duration: 0.8
-      interval: 0.2
-      value: 0.5
-    buff:
-      effectID: 0
-      damageBuff: 0
-      cooldownBuff: 0
-      rangeBuff: 0
-      criticalBuff: 0
-      regenHP: 0
-    rscGain: 
-    cost: 1400000000000000
-    buildDuration: 1
-    unBuildDuration: 1
-    shootObjectT: {fileID: 0}
-    shootObject: {fileID: 0}
-    useCustomDesp: 0
-    desp: 
-  dead: 0
-  stunned: 0
-  slowMultiplier: 1
-  slowEffectList: []
-  buffEffect: []
-  localShootObjectT: {fileID: 0}
-  localShootObject: {fileID: 0}
-  shootPoints:
-  - {fileID: 4409157742377541301}
-  delayBetweenShootPoint: 0
-  targetPoint: {fileID: 4409157742377541295}
-  hitThreshold: 0.25
-  thisObj: {fileID: 0}
-  thisT: {fileID: 0}
-  turretObject: {fileID: 4409157742377541295}
-  barrelObject: {fileID: 0}
-  rotateTurretAimInXAxis: 1
-  target: {fileID: 0}
-  targetPriority: 4
-  buffedUnit: []
-  activeBuffList: []
-  damageBuffMul: 0
-  cooldownBuffMul: 0
-  rangeBuffMul: 0
-  criticalBuffMod: 0.1
-  regenHPBuff: 1
-  deadEffectObj: {fileID: 0}
-  type: 0
-  targetMode: 0
-  disableInBuildManager: 1
-  builtDuration: 0
-  buildDuration: 0
-  prevLevelTower: {fileID: 11400000, guid: cd298b39267979d4085d4f6441f0facb, type: 3}
-  nextLevelTower: {fileID: 0}
-  value: 
 --- !u!95 &4409157742388344680
 Animator:
   serializedVersion: 5
