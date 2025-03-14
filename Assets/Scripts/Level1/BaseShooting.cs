@@ -24,6 +24,12 @@ public class BaseShooting : MonoBehaviour
     public Color lineColor = Color.red;
     public float thickness = 0.05f;
 
+    [Header("------Animation-------")]
+    public Animator animator;
+
+    [Header("------Sound-------")]
+    public AudioSource audioSource;
+
 
 
 
@@ -44,7 +50,21 @@ public class BaseShooting : MonoBehaviour
 
         Gizmos.DrawLine(start, end);
     }
-    
+
+
+    private void Start()
+    {
+        if (animator == null)
+        {
+            animator = GetComponent<Animator>();
+        }
+
+        if (audioSource == null)
+        {
+            audioSource = GetComponent<AudioSource>();
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -64,16 +84,32 @@ public class BaseShooting : MonoBehaviour
 
             float dotValue = Vector3.Dot(forwardTurret, toEnemyVector);
 
-            if (Vector3.Distance(transform.position, enemy.transform.position) <= AttackRange && Time.time > NextFireTime && dotValue >=0.98) {
+            if (Vector3.Distance(transform.position, enemy.transform.position) <= AttackRange && Time.time > NextFireTime && dotValue >= 0.98)
+            {
                 //shoot enemy
                 ShootEnemy(enemy);
                 NextFireTime = FireRate + Time.time;
                 break; //shooting one enemy at a time
             }
+            else {
+                animator.SetBool("shoot", false);
+            }
+
         }
     }
 
     void ShootEnemy(GameObject enemy) {
+
+        animator.SetBool("shoot", true);
+
+        if (audioSource != null && audioSource.clip != null)
+        {
+            audioSource.Play();
+        }
+        else
+        {
+            Debug.Log("Audiosource not found!!!!");
+        }
 
         if (muzzleEffect != null) // error handling
         {
