@@ -6,9 +6,8 @@ using UnityEngine;
 public class Turret2Shoot : MonoBehaviour
 {
     public float AttackRange = 5f;
-    public float FireRate = 3f;
-    public float soundRate = 0.1f;
-    private int damage = 2;
+    public float FireRate = 0.1f;
+    public int damage = 2;
     private float NextFireTime;
     private float NextSoundTime;
 
@@ -58,11 +57,13 @@ public class Turret2Shoot : MonoBehaviour
 
 
 
-        foreach (GameObject enemy in enemies)
+        foreach (GameObject enemy in enemies)  // ------ all good
         {
-            if (Vector3.Distance(transform.position, enemy.transform.position) <= AttackRange && Time.time > NextSoundTime)
+            if (Vector3.Distance(transform.position, enemy.transform.position) <= AttackRange && Time.time > NextFireTime)
             {
-                // sound effect starts here:
+                //shoot enemy
+                ShootEnemy(enemy);
+                NextFireTime = FireRate + Time.time;
                 if (audioSource != null && audioSource.clip != null)
                 {
                     audioSource.Play();
@@ -71,14 +72,6 @@ public class Turret2Shoot : MonoBehaviour
                 {
                     Debug.Log("Audiosource not found!!!!");
                 }
-                NextSoundTime = soundRate + Time.time;
-            }
-
-            if (Vector3.Distance(transform.position, enemy.transform.position) <= AttackRange && Time.time > NextFireTime)
-            {
-                //shoot enemy
-                ShootEnemy(enemy);
-                NextFireTime = FireRate + Time.time;
 
                 break; //shooting one enemy at a time
             }
@@ -93,19 +86,19 @@ public class Turret2Shoot : MonoBehaviour
     void ShootEnemy(GameObject enemy)
     {
         // animation transition here:
-        animator.SetBool("shooting", true);
+        animator.SetBool("shooting", true);  // shooting anim needs to change ----------------------------------
         
         Debug.Log(animator.GetBool("shooting"));
 
-        if (muzzleEffect != null) // error handling
+        if (muzzleEffect != null) // error handling   // change the muzzle effect ------------------------------
         {
             muzzleEffect.Play();
             //muzzleEffect2.Play();
         }
 
         // error handling
-        enemy.GetComponent<BaseHealth>().TakeDamage(damage); // replace with enemyHealth script.
+        enemy.GetComponent<BaseHealth>().TakeDamage(damage); // replace with enemyHealth script.  ------------------------------------
+        enemy.GetComponent<EnemyHitEffect>().TriggerHit();
         Debug.Log("Turret shot the enemy");
-
     }
 }
