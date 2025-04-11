@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class BaseHealth : MonoBehaviour
 {
-    public int Health = 100;
+    public float Health = 100;
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
         Health -= damage;
         Debug.Log("Base took damage!");

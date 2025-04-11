@@ -7,7 +7,7 @@ public class Turret2Shoot : MonoBehaviour
 {
     public float AttackRange = 5f;
     public float FireRate = 0.1f;
-    public int damage = 2;
+    public float damage = 2.0f;
     private float NextFireTime;
     private float NextSoundTime;
 
