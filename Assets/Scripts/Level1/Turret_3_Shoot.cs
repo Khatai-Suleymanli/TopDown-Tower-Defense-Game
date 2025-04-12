@@ -101,7 +101,7 @@ public class Turret_3_Shoot : MonoBehaviour
         // error handling
         enemy.GetComponent<BaseHealth>().TakeDamage(damage); // replace with enemyHealth script.
         enemy.GetComponent<EnemyHitEffect>().TriggerHit();
-        Debug.Log("Turret shot the enemy");
+        Debug.Log("Turret 3 shot the enemy");
 
     }
 }

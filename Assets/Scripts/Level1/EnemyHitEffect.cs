@@ -6,7 +6,7 @@ using UnityEngine;
 public class EnemyHitEffect : MonoBehaviour
 {
     private Renderer[] enemyRenderers;
-    private Color[] originalColors;  
+    private Color[] originalColors;
 
     [Header("Hit Effect settings")]
     [SerializeField] private Color hitColor = Color.green;
