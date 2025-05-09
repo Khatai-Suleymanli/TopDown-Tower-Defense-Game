@@ -14,8 +14,9 @@ GameObject:
   - component: {fileID: 6049069976637212296}
   - component: {fileID: 6049069976637212299}
   - component: {fileID: 6049069976637212298}
-  - component: {fileID: 6049069976637212301}
   - component: {fileID: 1118707341}
+  - component: {fileID: 6394159210871499266}
+  - component: {fileID: -5659654448052723169}
   m_Layer: 0
   m_Name: enemy 1
   m_TagString: Enemy
@@ -145,19 +146,6 @@ MonoBehaviour:
   AttackRange: 12
   FireRate: 1
   damage: 100
---- !u!114 &6049069976637212301
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6049069976627737928}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a135b82a8864cfe4a9b1388f01e0f632, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Health: 100
 --- !u!114 &1118707341
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,4 +161,32 @@ MonoBehaviour:
   hitColor: {r: 0.76729554, g: 0.032599065, b: 0, a: 1}
   flashDuration: 0.15
   Emission: 1
-  emissionIntensity: 2
+  emissionIntensity: 1
+--- !u!114 &6394159210871499266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6049069976627737928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49eeee4d834f0ab4d8da74277e113ad1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: 100
+--- !u!114 &-5659654448052723169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6049069976627737928}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a135b82a8864cfe4a9b1388f01e0f632, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: 100
+  healthBar: {fileID: 0}
+  fillImage: {fileID: 0}

@@ -62,6 +62,15 @@ public class Turret_3_Shoot : MonoBehaviour
                 //shoot enemy
                 ShootEnemy(enemy);
                 NextFireTime = FireRate + Time.time;
+                if (audioSource != null && audioSource.clip != null)
+                {
+                    audioSource.Play();
+                }
+                else
+                {
+                    Debug.Log("Audiosource not found!!!!");
+                }
+
                 break; //shooting one enemy at a time
             }
             else
@@ -74,34 +83,19 @@ public class Turret_3_Shoot : MonoBehaviour
     void ShootEnemy(GameObject enemy)
     {
         // animation transition here:
-        animator.SetBool("shoot", true);
-        // sound effect starts here:
-        if (audioSource != null && audioSource.clip != null)
-        {
-            audioSource.Play();
-        }
-        else
-        {
-            Debug.Log("Audiosource not found!!!!");
-        }
-        Debug.Log(animator.GetBool("shoot"));
-        Debug.Log("3 shot the enemy");
+        animator.SetBool("shooting", true);  // shooting anim needs to change ----------------------------------
 
+        Debug.Log(animator.GetBool("shooting"));
 
-        
-
-        if (muzzleEffect != null) // error handling
+        if (muzzleEffect != null) // error handling   // change the muzzle effect ------------------------------
         {
             muzzleEffect.Play();
-            muzzleEffect2.Play();
-            Debug.Log("Fire effect called");
-            
+            //muzzleEffect2.Play();
         }
 
         // error handling
-        enemy.GetComponent<BaseHealth>().TakeDamage(damage); // replace with enemyHealth script.
+        enemy.GetComponent<BaseHealth>().TakeDamage(damage); // replace with enemyHealth script.  ------------------------------------
         enemy.GetComponent<EnemyHitEffect>().TriggerHit();
-        Debug.Log("Turret 3 shot the enemy");
-
+        Debug.Log("Turret shot the enemy");
     }
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Mortar : MonoBehaviour
 {
@@ -15,6 +16,21 @@ public class Mortar : MonoBehaviour
     private float z;
 
 
+    // boolean
+    [Header("booleans")]
+    private bool canShootRocket = false;
+    public bool canClickButton = true;
+
+
+
+    [Header("button objects")]
+
+    public GameObject RealButton;
+    public GameObject FakeButton;
+
+    //public Button shootButton;
+
+
     private float shootLoadTime = 5f;
     private float lastShootTime;
 
@@ -24,12 +40,24 @@ public class Mortar : MonoBehaviour
         g = 9.8f;
         lastShootTime = -shootLoadTime;
 
+        //FakeButton.gameObject.SetActive(false);
+
+}
+
+    public void SetBoolTrue() {
+        if(canClickButton){
+            canShootRocket = true;
+            Debug.Log("Bool is set to true");
+            FakeButton.SetActive(true);
+            RealButton.SetActive(false);
+        }
+        
     }
 
     void Update()
     {
         // If left-mouse button is clicked, launch projectile
-        if (Input.GetMouseButtonDown(0) && Time.time - lastShootTime >= shootLoadTime)
+        if (Input.GetMouseButtonDown(0) && Time.time - lastShootTime >= shootLoadTime && canShootRocket)/*bool true*/
         {
 
             SetLandingTarget(); // define below
@@ -39,6 +67,7 @@ public class Mortar : MonoBehaviour
             lastShootTime = Time.time;
             
         }
+        
     }
 
 
@@ -63,8 +92,24 @@ public class Mortar : MonoBehaviour
             z = landingTarget.transform.position.z - launchSite.transform.position.z;
 
         }
-    
-    
+        canClickButton = false;
+        canShootRocket = false;
+
+        
+
+        StartCoroutine(startTime());
+
+
+
+    }
+
+    IEnumerator startTime() { 
+        yield return new WaitForSeconds(5f);
+        canClickButton = true;
+        FakeButton.SetActive(false);
+        RealButton.SetActive(true);
+       
+
     }
 
     void LaunchBall(GameObject launchObject)
