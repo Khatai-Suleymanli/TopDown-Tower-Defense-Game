@@ -6,7 +6,6 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
 
-
 public class DragHandler : MonoBehaviour, IPointerDownHandler
 {
     public GameObject turretPrefab;
@@ -14,6 +13,7 @@ public class DragHandler : MonoBehaviour, IPointerDownHandler
     private bool isDragging = false;
     public LayerMask placementLayer;
     private Camera mainCamera;
+    private IdleGoldCounter goldCounter;
 
 
 
@@ -23,11 +23,15 @@ public class DragHandler : MonoBehaviour, IPointerDownHandler
     {
         mainCamera = Camera.main;
         placementLayer = LayerMask.GetMask("Ground");
+        goldCounter = FindObjectOfType<IdleGoldCounter>();
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        StartDrag(); // implement down ----------
+        if (goldCounter.CanAffordTurret()) // Only start drag if player can afford
+        {
+            StartDrag();
+        } // implement down ----------
     }
 
     // Update is called once per frame
@@ -76,7 +80,11 @@ public class DragHandler : MonoBehaviour, IPointerDownHandler
         Ray ray =  mainCamera.ScreenPointToRay (Input.mousePosition);
         if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, placementLayer))
         {
-            Instantiate(turretPrefab, hit.point, Quaternion.identity);
+            if (goldCounter.CanAffordTurret())
+            {
+                Instantiate(turretPrefab, hit.point, Quaternion.identity);
+                goldCounter.buyTurrette();
+            }
         }
 
         Destroy(previewTurret);

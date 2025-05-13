@@ -9,6 +9,7 @@ public class IdleGoldCounter : MonoBehaviour
     [Header("------Settings-------")]
     private float increasePerSecond = 1f;
     private float maxAmount = 10.0f;
+    private float turretCost = 2.0f;
 
 
     [Header("------UI-------")]
@@ -24,6 +25,18 @@ public class IdleGoldCounter : MonoBehaviour
 
     private float currentValue = 0.0f;
     private bool isAtMax = false;
+    public bool CanAffordTurret()
+    {
+        return currentValue >= turretCost;
+    }
+    public void buyTurrette()
+    {
+        if (CanAffordTurret())
+        {
+            currentValue -= turretCost;
+            UpdateCounterText();
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -39,7 +52,12 @@ public class IdleGoldCounter : MonoBehaviour
             currentValue += increasePerSecond * Time.deltaTime;
             currentValue = Mathf.Min(currentValue, maxAmount);
             countertext.text = currentValue.ToString();
+            UpdateCounterText();
         }
+    }
+    private void UpdateCounterText()
+    {
+        countertext.text = currentValue.ToString("F1");
     }
 
 
